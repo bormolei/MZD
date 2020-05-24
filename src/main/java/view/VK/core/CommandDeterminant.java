@@ -1,6 +1,8 @@
 package view.VK.core;
 
 import com.vk.api.sdk.objects.messages.Message;
+import model.Bot;
+import model.WeatherParser;
 import view.VK.core.commands.Unknown;
 
 import java.util.Collection;
@@ -17,14 +19,11 @@ public class CommandDeterminant {
     public static Command getCommand(Collection<Command> commands, Message message) {
         String body = message.getBody();
 
-        for (Command command : commands
-        ) {
-                if (command.name.equals(body.split(" ")[0])) {
-                    return command;
-                }
-        }
+        WeatherParser bot = new Bot();
+         String test = bot.getReadyForecast(body);
 
-        return new Unknown("unknown");
+
+        return new Unknown(test);
     }
 
 }

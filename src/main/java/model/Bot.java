@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class Bot extends Command implements WeatherParser {
+public class Bot implements WeatherParser {
     private final static String API_CALL_TEMPLATE = "https://api.openweathermap.org/data/2.5/forecast?q=";
     //Replace "..." with your OpenWeatherMap API key
     private final static String API_KEY_TEMPLATE = "&units=metric&APPID=af2ed85eb4017a81d8584d861a45f21a";
@@ -26,19 +26,8 @@ public class Bot extends Command implements WeatherParser {
     private final static DateTimeFormatter INPUT_DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     private final static DateTimeFormatter OUTPUT_DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("MMM-dd HH:mm", Locale.US);
 
-    public Bot(String name)
-    {
-        super(name);
-    }
 
-    @Override
-    public void exec(Message message)
-    {
-        new VKManager().sendMessage("fdgdfg", message.getUserId());
-    }
-
-    public Bot()
-    {
+    public Bot() {
     }
 
     @Override
