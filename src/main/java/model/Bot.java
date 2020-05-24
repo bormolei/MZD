@@ -35,10 +35,10 @@ public class Bot implements WeatherParser {
             List<String> linesOfForecast = convertRawDataToList(jsonRawData);
             result = String.format("%s:%s%s", city, System.lineSeparator(), parseForecastDataFromList(linesOfForecast));
         } catch (IllegalArgumentException e) {
-            return String.format("Can't find \"%s\" city. Try another one, for example: \"Kyiv\" or \"Moscow\"", city);
+            return String.format("Немогу найти город \"%s\". Попробуйте другой, например: \"Киев\" или \"Moscow\"", city);
         } catch (Exception e) {
             e.printStackTrace();
-            return "The service is not available, please try later";
+            return "Серивис сейчас не работатет, пожалуйста попробуйте позже";
         }
         return result;
     }

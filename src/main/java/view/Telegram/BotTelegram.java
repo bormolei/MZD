@@ -1,5 +1,6 @@
 package view.Telegram;
 
+import com.sun.java.accessibility.util.Translator;
 import model.Bot;
 import model.WeatherParser;
 import org.telegram.abilitybots.api.bot.AbilityBot;
@@ -36,8 +37,8 @@ public class BotTelegram extends AbilityBot {
                 .name("start")
                 .locality(ALL)
                 .privacy(PUBLIC)
-                .action(ctx -> silent.send("Hello! Enter the city in chat and get 5 days forecast! " +
-                        "For example: \"New York\" or \"Istanbul\"", ctx.chatId()))
+                .action(ctx -> silent.send("Привет! Введи город в чат и получи предсказание на 5 дней! " +
+                        "Например: \"Нью Йорк\" или \"Москва\"", ctx.chatId()))
                 .build();
     }
 
@@ -57,4 +58,5 @@ public class BotTelegram extends AbilityBot {
                 })
                 .build();
     }
+
 }
