@@ -7,9 +7,9 @@ public class WeatherUtils {
     public final static Map<String, String> weatherIconsCodes = new HashMap<>();
 
     static {
-        weatherIconsCodes.put("Clear", "☀");
-        weatherIconsCodes.put("Rain", "☔");
-        weatherIconsCodes.put("Snow", "❄");
-        weatherIconsCodes.put("Clouds", "☁");
+        weatherIconsCodes.put("Ясно", "☀");
+        weatherIconsCodes.put("Дождь", "☔");
+        weatherIconsCodes.put("Снег", "❄");
+        weatherIconsCodes.put("Облачно", "☁");
     }
 }

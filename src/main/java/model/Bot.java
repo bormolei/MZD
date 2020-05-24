@@ -3,9 +3,6 @@ package model;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.vk.api.sdk.objects.messages.Message;
-import view.VK.core.Command;
-import view.VK.vk.VKManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -47,7 +44,8 @@ public class Bot implements WeatherParser {
     }
 
     private static String downloadJsonRawData(String city) throws Exception {
-        String urlString = API_CALL_TEMPLATE + city + API_KEY_TEMPLATE;
+        String engCity = Translator.downloadJsonRawData(city);
+        String urlString = API_CALL_TEMPLATE + engCity + API_KEY_TEMPLATE;
         URL urlObject = new URL(urlString);
 
         HttpURLConnection connection = (HttpURLConnection) urlObject.openConnection();
