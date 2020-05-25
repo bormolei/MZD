@@ -1,12 +1,9 @@
-package view.VK.core.commands;
+package model.VK.core.commands;
 
 import com.vk.api.sdk.objects.messages.Message;
-import view.VK.core.Command;
-import view.VK.vk.VKManager;
+import model.VK.core.Command;
+import model.VK.vk.VKManager;
 
-/**
- * @author Arthur Kupriyanov
- */
 public class Unknown extends Command {
 
     public Unknown(String name) {

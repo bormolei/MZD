@@ -1,13 +1,10 @@
-package view.VK.vk;
+package model.VK.vk;
 
 import com.vk.api.sdk.exceptions.ApiException;
 import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.objects.users.UserXtrCounters;
 import com.vk.api.sdk.queries.messages.MessagesSendQuery;
 
-/**
- * @author Arthur Kupriyanov
- */
 public class VKManager {
     public static VKCore vkCore;
 

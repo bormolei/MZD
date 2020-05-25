@@ -1,5 +1,4 @@
-package model;
-// https://api.openweathermap.org/data/2.5/forecast?q=(г..(уникальный токен, полученный при регистрации)
+package service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,7 +16,6 @@ import java.util.Locale;
 
 public class Bot implements WeatherParser {
     private final static String API_CALL_TEMPLATE = "https://api.openweathermap.org/data/2.5/forecast?q=";
-    //Replace "..." with your OpenWeatherMap API key
     private final static String API_KEY_TEMPLATE = "&units=metric&APPID=af2ed85eb4017a81d8584d861a45f21a";
     private final static String USER_AGENT = "Mozilla/5.0";
     private final static DateTimeFormatter INPUT_DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -35,7 +33,7 @@ public class Bot implements WeatherParser {
             List<String> linesOfForecast = convertRawDataToList(jsonRawData);
             result = String.format("%s:%s%s", city, System.lineSeparator(), parseForecastDataFromList(linesOfForecast));
         } catch (IllegalArgumentException e) {
-            return String.format("Немогу найти город \"%s\". Попробуйте другой, например: \"Киев\" или \"Moscow\"", city);
+            return String.format("Немогу найти город \"%s\". Попробуйте другой, например: \"Москва\" или \"Moscow\"", city);
         } catch (Exception e) {
             e.printStackTrace();
             return "Серивис сейчас не работатет, пожалуйста попробуйте позже";

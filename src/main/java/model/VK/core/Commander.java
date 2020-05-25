@@ -1,11 +1,11 @@
-package view.VK.core;
+package model.VK.core;
 
 import com.vk.api.sdk.objects.messages.Message;
 
 public class Commander {
 
     /**
-     * Обработка сообщений, получаемых через сервис Вконтакте. Имеет ряд дополнительной информации.
+     * Обработка сообщений, получаемых через сервис Вконтакте.
      * @param message сообщение (запрос) пользователя
      */
     public static void execute(Message message){

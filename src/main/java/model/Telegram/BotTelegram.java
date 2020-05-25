@@ -1,8 +1,7 @@
-package view.Telegram;
+package model.Telegram;
 
-import com.sun.java.accessibility.util.Translator;
-import model.Bot;
-import model.WeatherParser;
+import service.Bot;
+import service.WeatherParser;
 import org.telegram.abilitybots.api.bot.AbilityBot;
 import org.telegram.abilitybots.api.objects.Ability;
 import org.telegram.abilitybots.api.objects.MessageContext;
@@ -15,9 +14,7 @@ import static org.telegram.abilitybots.api.objects.Privacy.PUBLIC;
  * Класс-обработчик поступающих к боту сообщений.
  */
 public class BotTelegram extends AbilityBot {
-    //Replace "..." with your Telegram bot token
     private static final String BOT_TOKEN = "765215433:AAEN9q1sxI6e4OWoDTxwzUFjBYoUN0xReqc";
-    //Replace "..." with your Telegram bot name
     private static final String BOT_NAME = "BotFindJob";
     private WeatherParser weatherParser = new Bot();
 
@@ -25,7 +22,6 @@ public class BotTelegram extends AbilityBot {
         super(BOT_TOKEN, BOT_NAME);
     }
 
-    //Replace "-1" with your Telegram user id
     @Override
     public int creatorId() {
         return -1;

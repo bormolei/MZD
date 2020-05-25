@@ -1,10 +1,14 @@
-package model;
+package service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+
+/**
+ * Класс переводчик с русского на английский
+ */
 public class Translator {
     static String lang = "ru-en";
     static String API_CALL_TEMPLATE = "https://translate.yandex.net/api/v1.5/tr.json/translate?"
@@ -13,6 +17,11 @@ public class Translator {
     static String API_KEY_TEMPLATE = "&lang=" + lang;
     private final static String USER_AGENT = "Mozilla/5.0";
 
+    /**
+     * Метод перевода из русского на английский
+     * @param text город для поиска
+     * @return переведенное значение
+     */
     public static String downloadJsonRawData(String text) throws Exception {
 
         String urlString = API_CALL_TEMPLATE + text + API_KEY_TEMPLATE;

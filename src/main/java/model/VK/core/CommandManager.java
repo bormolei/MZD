@@ -1,7 +1,6 @@
-package view.VK.core;
+package model.VK.core;
 
-import model.Bot;
-import view.VK.core.commands.Unknown;
+import model.VK.core.commands.Unknown;
 
 import java.util.HashSet;
 
@@ -13,7 +12,7 @@ public class CommandManager {
 
     static {
         commands.add(new Unknown("unknown"));
-         //    commands.add(new Bot("лох"));
+         //    commands.add(new Bot("test"));
 
     }
 
