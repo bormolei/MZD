@@ -1,4 +1,4 @@
-package view.VK.vk;
+package model.VK.vk;
 
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
@@ -8,12 +8,7 @@ import com.vk.api.sdk.exceptions.ClientException;
 import com.vk.api.sdk.httpclient.HttpTransportClient;
 import com.vk.api.sdk.objects.messages.Message;
 import com.vk.api.sdk.queries.messages.MessagesGetLongPollHistoryQuery;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.List;
-import java.util.Properties;
-
 
 
 public class VKCore {
@@ -29,11 +24,11 @@ public class VKCore {
 
         // Загрузка конфигураций
 
-        Properties prop = new Properties();
+        //Properties prop = new Properties();
         int groupId;
         String access_token;
 
-        String s =prop.getProperty("groupId");
+        //String s =prop.getProperty("groupId");
         groupId = 195600732;
         access_token = "e8264d932a1992aa49df7ad279393dfd86dbf6ed353cfda96dd60202fd0d3a5901cfe96f6e8782fdc6649";
         actor = new GroupActor(groupId, access_token);
@@ -46,15 +41,17 @@ public class VKCore {
     public GroupActor getActor() {
         return actor;
     }
+
     public VkApiClient getVk() {
         return vk;
     }
+
     public Message getMessage() throws ClientException, ApiException {
 
         MessagesGetLongPollHistoryQuery eventsQuery = vk.messages()
                 .getLongPollHistory(actor)
                 .ts(ts);
-        if (maxMsgId > 0){
+        if (maxMsgId > 0) {
             eventsQuery.maxMsgId(maxMsgId);
         }
         List<Message> messages = eventsQuery
@@ -62,9 +59,9 @@ public class VKCore {
                 .getMessages()
                 .getMessages();
 
-        if (!messages.isEmpty()){
+        if (!messages.isEmpty()) {
             try {
-                ts =  vk.messages()
+                ts = vk.messages()
                         .getLongPollServer(actor)
                         .execute()
                         .getTs();
@@ -80,7 +77,7 @@ public class VKCore {
                 а max_msg_id не передан, метод может вернуть ошибку 10 (Internal server error).
                  */
             int messageId = messages.get(0).getId();
-            if (messageId > maxMsgId){
+            if (messageId > maxMsgId) {
                 maxMsgId = messageId;
             }
 

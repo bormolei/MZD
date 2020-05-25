@@ -1,14 +1,10 @@
-package view.VK.core;
+package model.VK.core;
 
 
 import com.vk.api.sdk.objects.messages.Message;
 
 /**
- * Abstract class for all executable classes-commands
- * Field {@link #name} identification command,he is called by this name
- *
- * @author Arthur Kupriyanov
- * @version 1.1
+ * Абстрактный класс для всех исполняемых классов-команд
  */
 public abstract class Command {
 
@@ -18,10 +14,6 @@ public abstract class Command {
         this.name = name;
     }
 
-    public Command()
-    {
-
-    }
     /**
      * Метод, который будет вызываться для исполнения команды
      * @param message сообщение пользователя

@@ -1,7 +1,7 @@
-package view.VK.vk;
+package model.VK.vk;
 
 import com.vk.api.sdk.objects.messages.Message;
-import view.VK.core.Commander;
+import model.VK.core.Commander;
 
 public class Messenger implements Runnable{
 

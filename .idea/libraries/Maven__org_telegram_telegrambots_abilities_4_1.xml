@@ -8,6 +8,7 @@
     </JAVADOC>
     <SOURCES>
       <root url="jar://$MAVEN_REPOSITORY$/org/telegram/telegrambots-abilities/4.1/telegrambots-abilities-4.1-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/telegrambots-abilities-4.1-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
