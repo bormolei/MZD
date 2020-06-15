@@ -45,11 +45,19 @@ public class BotTelegram extends TelegramLongPollingBot {
     }
 
 
-    public void sendMsg(Message message/*, String s*/) {
+    public void sendMsg(Message message) {
         SendMessage sendMessage = new SendMessage();
         sendMessage.enableMarkdown(true);
         sendMessage.setChatId(message.getChatId().toString());
 
+        //Исправить обработку выбора режима
+        if(!flags.get(1)){
+            sendMessage.setText("Выберите режим");
+        }
+
+        if (flags.get(1)) {
+            sendMessage.setText(weatherParser.getReadyForecast(message.getText()));
+        }
 
         try {
             setButtons(sendMessage);
@@ -69,9 +77,8 @@ public class BotTelegram extends TelegramLongPollingBot {
                         break;
                 }
             }
-            
 
-//            sendMessage.setText(weatherParser.getReadyForecast(message.getText()));
+
             execute(sendMessage);
         } catch (TelegramApiException e) {
             e.printStackTrace();
@@ -87,6 +94,9 @@ public class BotTelegram extends TelegramLongPollingBot {
         return false;
     }
 
+    /**
+     *Клавиатура для телеграм
+     */
     public void setButtons(SendMessage sendMessage) {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
         sendMessage.setReplyMarkup(replyKeyboardMarkup);
@@ -98,7 +108,7 @@ public class BotTelegram extends TelegramLongPollingBot {
         KeyboardRow keyboardFirstRow = new KeyboardRow();
 
         keyboardFirstRow.add(new KeyboardButton("Погода"));
-//        keyboardFirstRow.add(new KeyboardButton("Тест2"));
+//        keyboardFirstRow.add(new KeyboardButton("Тест2")); ДОРАБОТАТЬ КЛАВУ
 //        keyboardFirstRow.add(new KeyboardButton("Тест3"));
 
         keyboardRows.add(keyboardFirstRow);
