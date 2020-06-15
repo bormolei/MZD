@@ -2,6 +2,7 @@ package model.Telegram;
 
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 
 //переименовать на нормальный
@@ -11,7 +12,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiRequestException;
 public class TelegaMain implements Runnable {
     @Override
     public void run() {
-
         ApiContextInitializer.init();
         TelegramBotsApi botsApi = new TelegramBotsApi();
         try {
