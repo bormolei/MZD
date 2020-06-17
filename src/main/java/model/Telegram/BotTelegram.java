@@ -64,7 +64,7 @@ public class BotTelegram extends TelegramLongPollingBot {
             if (!check()) {
                 switch (message.getText()) {
                     case "Погода":
-                        sendMessage.setText("Введите название город");
+                        sendMessage.setText("Введите название города.Например: \"Москва\" или \"Moscow\"");
                         flags.set(1, true);
                         break;
                     case "Тест2":
@@ -108,13 +108,13 @@ public class BotTelegram extends TelegramLongPollingBot {
         KeyboardRow keyboardFirstRow = new KeyboardRow();
 
         keyboardFirstRow.add(new KeyboardButton("Погода"));
-//        keyboardFirstRow.add(new KeyboardButton("Тест2")); ДОРАБОТАТЬ КЛАВУ
-//        keyboardFirstRow.add(new KeyboardButton("Тест3"));
 
         keyboardRows.add(keyboardFirstRow);
         replyKeyboardMarkup.setKeyboard(keyboardRows);
     }
 
+//        keyboardFirstRow.add(new KeyboardButton("Тест2")); ДОРАБОТАТЬ КЛАВУ
+//        keyboardFirstRow.add(new KeyboardButton("Тест3"));
     /**
      * Метод возвращает имя бота, указанное при регистрации.
      *
@@ -122,7 +122,7 @@ public class BotTelegram extends TelegramLongPollingBot {
      */
     @Override
     public String getBotUsername() {
-        return "BotFindJob";
+        return "WeatherBotKK";
     }
 
     /**
